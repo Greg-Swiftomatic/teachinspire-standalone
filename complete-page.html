@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeachInspire - Transformez votre institut avec l'IA pédagogique</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/assets/css/common.css">
-    <link rel="stylesheet" href="/src/assets/css/animations.css">
-    <script src="/src/assets/js/scroll-animations.js" defer></script>
+    <link rel="stylesheet" href="src/assets/css/common.css">
+    <link rel="stylesheet" href="src/assets/css/animations.css">
+    <script src="src/assets/js/scroll-animations.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -183,7 +183,9 @@
         .section-title {
             font: 700 42px/1.2 'Playfair Display', serif;
             color: #2c3d57;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 10;
         }
         
         .section-description {
@@ -308,7 +310,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 64px;
             align-items: center;
-            margin-top: 48px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
         }
         
         .format-image {
@@ -320,6 +324,10 @@
             height: auto;
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            position: relative;
+            z-index: 1;
+            max-height: 500px;
+            object-fit: contain;
         }
         
         .format-details {
