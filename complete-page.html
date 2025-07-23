@@ -6,7 +6,8 @@
     <title>TeachInspire - Transformez votre institut avec l'IA pédagogique</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/assets/css/common.css">
-    <script src="/src/assets/js/simple-animations.js" defer></script>
+    <link rel="stylesheet" href="/src/assets/css/animations.css">
+    <script src="/src/assets/js/scroll-animations.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -957,11 +958,11 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="ac0b1e8c-2363-41b1-9daa-49d580bb8c6f">
+    <section class="hero-section" id="ac0b1e8c-2363-41b1-9daa-49d580bb8c6f" data-animation="fade-in">
         <div class="hero-container">
             <!-- Text Column -->
             <div class="text-column">
-                <h1 class="hero-title">Transformez votre institut avec l'IA pédagogique</h1>
+                <h1 class="hero-title" data-animation="reveal-words">Transformez votre institut avec l'IA pédagogique</h1>
                 
                 <div class="subtitle-container">
                     <h2 class="subtitle-prefix">Créer des cours sur mesure est</h2>
@@ -974,7 +975,9 @@
             <div class="image-column">
                 <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/513fa36c-80bd-4015-140b-4b42ca020b00/public" 
                      alt="Hourglass with lightbulb - Time and inspiration" 
-                     class="hourglass-image">
+                     class="hourglass-image"
+                     data-parallax
+                     data-parallax-speed="0.5">
             </div>
             
             <!-- Description (spans full width) -->
@@ -1000,15 +1003,17 @@
     </section>
 
     <!-- Problems Section -->
-    <section class="section problems-section" id="1b0b31e0-8a1d-4c98-9562-2a7bffd7b340">
+    <section class="section problems-section" id="1b0b31e0-8a1d-4c98-9562-2a7bffd7b340" data-animation="slide-in-left">
         <div class="section-container">
-            <h2 class="section-title">Votre Institut Face aux Défis Actuels</h2>
+            <h2 class="section-title" data-animation="reveal-words">Votre Institut Face aux Défis Actuels</h2>
             
             <div class="problems-content">
                 <div class="problems-image">
                     <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/bd86211e-6125-480f-6db1-20bfb880eb00/public" 
                          alt="Illustration of educational challenges" 
-                         class="challenges-image">
+                         class="challenges-image"
+                         data-parallax
+                         data-parallax-speed="0.3">
                 </div>
                 
                 <div class="problems-list">
@@ -1037,9 +1042,9 @@
     </section>
 
     <!-- Approach Section -->
-    <section class="section approach-section" id="7e236026-ae26-43c1-b165-0a64b12a6d75">
+    <section class="section approach-section" id="7e236026-ae26-43c1-b165-0a64b12a6d75" data-animation="slide-in-right">
         <div class="section-container">
-            <h2 class="section-title">Notre Approche: Formation + Communauté + Accompagnement</h2>
+            <h2 class="section-title" data-animation="reveal-words">Notre Approche: Formation + Communauté + Accompagnement</h2>
             
             <div class="approach-grid">
                 <div class="approach-item">
@@ -1064,16 +1069,16 @@
             </div>
             
             <div class="philosophy-container">
-                <h3 class="philosophy-title">Notre philosophie:</h3>
+                <h3 class="philosophy-title" data-animation="reveal-words">Notre philosophie:</h3>
                 <p class="philosophy-text">L'IA s'occupe des tâches répétitives, vos formateurs se concentrent sur l'enseignement.</p>
             </div>
         </div>
     </section>
 
     <!-- Training Program Section -->
-    <section class="section training-section" id="eeca3349-b596-4f42-8363-38d479ae30ba">
+    <section class="section training-section" id="eeca3349-b596-4f42-8363-38d479ae30ba" data-animation="slide-in-left">
         <div class="section-container">
-            <h2 class="section-title">Programme de Formation Détaillé</h2>
+            <h2 class="section-title" data-animation="reveal-words">Programme de Formation Détaillé</h2>
             
             <div class="training-grid">
                 <!-- Module 1 -->
@@ -1081,7 +1086,7 @@
                     <div class="training-icon">
                         <div class="training-icon-placeholder"></div>
                     </div>
-                    <h3 class="training-title">Module 1 — Fondations IA & Outils Essentiels</h3>
+                    <h3 class="training-title" data-animation="reveal-words">Module 1 — Fondations IA & Outils Essentiels</h3>
                     <ul class="training-list">
                         <li>Google AI Studio & Modèles de Langage</li>
                         <li>Outils de transcription</li>
@@ -1095,7 +1100,7 @@
                     <div class="training-icon">
                         <div class="training-icon-placeholder"></div>
                     </div>
-                    <h3 class="training-title">Module 2 — Prompt Engineering & Communication IA</h3>
+                    <h3 class="training-title" data-animation="reveal-words">Module 2 — Prompt Engineering & Communication IA</h3>
                     <ul class="training-list">
                         <li>Fondamentaux du prompting</li>
                         <li>Prompts structurés et réutilisables</li>
@@ -1109,7 +1114,7 @@
                     <div class="training-icon">
                         <div class="training-icon-placeholder"></div>
                     </div>
-                    <h3 class="training-title">Module 3 — Workflows Pédagogiques Complets</h3>
+                    <h3 class="training-title" data-animation="reveal-words">Module 3 — Workflows Pédagogiques Complets</h3>
                     <ul class="training-list">
                         <li>Transformer du contenu authentique</li>
                         <li>Création d'activités et d'évaluations</li>
@@ -1123,15 +1128,17 @@
     </section>
 
     <!-- Training Format Section -->
-    <section class="section format-section" id="2225af1a-6129-4282-9fbe-35e98a57ccee">
+    <section class="section format-section" id="2225af1a-6129-4282-9fbe-35e98a57ccee" data-animation="slide-in-right">
         <div class="section-container">
-            <h2 class="section-title">Format de Formation Hybride</h2>
+            <h2 class="section-title" data-animation="reveal-words">Format de Formation Hybride</h2>
             
             <div class="format-content">
                 <div class="format-image">
                     <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/74b4df78-2d35-4eb9-6257-87d737569800/public" 
                          alt="Formation hybride illustration" 
-                         class="format-img">
+                         class="format-img"
+                         data-parallax
+                         data-parallax-speed="0.4">
                 </div>
                 
                 <div class="format-details">
@@ -1166,9 +1173,9 @@
     </section>
 
     <!-- Community Section -->
-    <section class="section community-section" id="c7ba5dc1-c233-4dd9-bcdb-39a1d7642e7e">
+    <section class="section community-section" id="c7ba5dc1-c233-4dd9-bcdb-39a1d7642e7e" data-animation="slide-in-left">
         <div class="section-container">
-            <h2 class="section-title">La Communauté TeachInspire</h2>
+            <h2 class="section-title" data-animation="reveal-words">La Communauté TeachInspire</h2>
             
             <div class="community-grid">
                 <div class="community-block">
@@ -1194,9 +1201,9 @@
     </section>
 
     <!-- Investment Section -->
-    <section class="section investment-section" id="71aef82d-8d34-45b3-bdf7-1310e073766c">
+    <section class="section investment-section" id="71aef82d-8d34-45b3-bdf7-1310e073766c" data-animation="slide-in-right">
         <div class="section-container">
-            <h2 class="section-title">Investissement et Modalités</h2>
+            <h2 class="section-title" data-animation="reveal-words">Investissement et Modalités</h2>
             
             <div class="investment-content">
                 <div class="investment-block">
@@ -1233,9 +1240,9 @@
     </section>
 
     <!-- Guarantees Section -->
-    <section class="section guarantees-section" id="1fb36b5f-587e-46f8-8fd2-f32ec4a7913c">
+    <section class="section guarantees-section" id="1fb36b5f-587e-46f8-8fd2-f32ec4a7913c" data-animation="slide-in-left">
         <div class="section-container">
-            <h2 class="section-title">Garanties et Engagements</h2>
+            <h2 class="section-title" data-animation="reveal-words">Garanties et Engagements</h2>
             
             <div class="guarantees-grid">
                 <div class="guarantee-block">
@@ -1262,9 +1269,9 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="section cta-section" id="33abbee2-21ea-439c-afe7-322d23c08713">
+    <section class="section cta-section" id="33abbee2-21ea-439c-afe7-322d23c08713" data-animation="slide-in-right">
         <div class="section-container">
-            <h2 class="section-title">Prêt à transformer votre approche pédagogique ?</h2>
+            <h2 class="section-title" data-animation="reveal-words">Prêt à transformer votre approche pédagogique ?</h2>
             <p class="section-description">
                 Découvrez comment l'IA peut révolutionner votre institut éducatif.
             </p>
@@ -1282,16 +1289,18 @@
     </section>
 
     <!-- About Section -->
-    <section class="section about-section" id="a823c108-9097-4a2a-a8cd-8505c1ef1cc9">
+    <section class="section about-section" id="a823c108-9097-4a2a-a8cd-8505c1ef1cc9" data-animation="slide-in-left">
         <div class="section-container">
             <!-- Large Logo -->
             <div class="about-logo">
                 <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/134736d6-5e59-461d-8594-dbd8c8d6c400/public" 
                      alt="TeachInspire" 
-                     class="about-logo-image">
+                     class="about-logo-image"
+                     data-parallax
+                     data-parallax-speed="0.2">
             </div>
             
-            <h2 class="section-title">À Propos de TeachInspire</h2>
+            <h2 class="section-title" data-animation="reveal-words">À Propos de TeachInspire</h2>
             
             <div class="about-content">
                 <!-- Left Column: Founder Profile -->
@@ -1299,7 +1308,9 @@
                     <div class="profile-photo">
                         <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/01dcb8db-47d1-4210-d7cd-462f76b58e00/public" 
                              alt="Grégory Le Dall" 
-                             class="profile-image">
+                             class="profile-image"
+                             data-parallax
+                             data-parallax-speed="0.3">
                     </div>
                     <h3 class="profile-name">Grégory Le Dall</h3>
                     <p class="profile-subtitle">Formateur certifié CELTA, Spécialiste IA pédagogique</p>
