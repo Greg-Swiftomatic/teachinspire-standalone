@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachInspire Animations Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/assets/css/common.css">
+    <script src="/src/assets/js/production-init.js" defer></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3d57;
+            background-color: #f8f7f2;
+        }
+        
+        .test-section {
+            padding: 80px 48px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .test-content {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .test-title {
+            font: 700 48px/1.2 'Playfair Display', serif;
+            margin-bottom: 32px;
+            color: #2c3d57;
+        }
+        
+        .test-description {
+            font: 400 20px/1.6 'Inter', sans-serif;
+            margin-bottom: 48px;
+            color: #2c3d57;
+        }
+        
+        .test-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f1d263;
+            color: #2c3d57;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font: 600 16px/1.4 'Inter', sans-serif;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .test-image {
+            max-width: 300px;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #85a2a3, #f1d263);
+            border-radius: 12px;
+            margin: 32px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .section-1 { background-color: #ffffff; }
+        .section-2 { background-color: #f8f7f2; }
+        .section-3 { background-color: #ffffff; }
+        .section-4 { background-color: #f8f7f2; }
+        
+        .debug-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 9999;
+            max-width: 300px;
+        }
+        
+        .debug-panel button {
+            margin: 4px;
+            padding: 4px 8px;
+            border: none;
+            background: #f1d263;
+            color: #2c3d57;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <h4>Animation Debug</h4>
+        <div id="debug-info">Loading...</div>
+        <div>
+            <button onclick="testCalendar()">Test Calendar</button>
+            <button onclick="reinitializeAnimations()">Reinit</button>
+            <button onclick="getStatus()">Status</button>
+        </div>
+    </div>
+
+    <!-- Test Section 1 - Hero Style -->
+    <section class="test-section section-1" id="ac0b1e8c-2363-41b1-9daa-49d580bb8c6f">
+        <div class="test-content">
+            <h1 class="test-title">Premium Animation Test</h1>
+            <p class="test-description">
+                This is a test page to verify that the TeachInspire Premium Animations are working correctly.
+                The sections should slide in alternately from left and right as you scroll.
+            </p>
+            <div class="test-image">Hero Image Animation</div>
+            <button class="test-button" onclick="testCalendar()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Test Calendar Integration
+            </button>
+        </div>
+    </section>
+
+    <!-- Test Section 2 - Slide Left -->
+    <section class="test-section section-2" id="1b0b31e0-8a1d-4c98-9562-2a7bffd7b340">
+        <div class="test-content">
+            <h2 class="test-title">Section Animation Left</h2>
+            <p class="test-description">
+                This section should slide in from the LEFT when it enters the viewport.
+                Text should have word-by-word reveals and images should have parallax effects.
+            </p>
+            <div class="test-image">Image with Parallax</div>
+        </div>
+    </section>
+
+    <!-- Test Section 3 - Slide Right -->
+    <section class="test-section section-3" id="7e236026-ae26-43c1-b165-0a64b12a6d75">
+        <div class="test-content">
+            <h2 class="test-title">Section Animation Right</h2>
+            <p class="test-description">
+                This section should slide in from the RIGHT when it enters the viewport.
+                Professional premium formation garanti should be highlighted.
+            </p>
+            <div class="test-image">Image with Clip Path</div>
+        </div>
+    </section>
+
+    <!-- Test Section 4 - Slide Left -->
+    <section class="test-section section-4" id="a823c108-9097-4a2a-a8cd-8505c1ef1cc9">
+        <div class="test-content">
+            <h2 class="test-title">Final Test Section</h2>
+            <p class="test-description">
+                This final section tests the complete animation system with all effects enabled.
+                It should demonstrate smooth performance and proper cleanup.
+            </p>
+            <div class="test-image">Focus Animation</div>
+            <button class="test-button" onclick="getAnimationReport()">Get Animation Report</button>
+        </div>
+    </section>
+
+    <script>
+        // Test functions
+        function testCalendar() {
+            console.log('Testing calendar integration...');
+            if (window.TeachInspireProduction) {
+                const url = window.TeachInspireProduction.getCalendarUrl();
+                console.log('Calendar URL:', url);
+                
+                // Test popup
+                const popup = window.open(url, 'test-calendar', 'width=900,height=700');
+                if (!popup) {
+                    alert('Popup blocked - would fallback to direct navigation');
+                }
+            } else {
+                alert('TeachInspire Production not loaded');
+            }
+        }
+        
+        function reinitializeAnimations() {
+            if (window.TeachInspireProduction) {
+                window.TeachInspireProduction.reinitialize().then(() => {
+                    console.log('Animations reinitialized');
+                    updateDebugInfo();
+                });
+            }
+        }
+        
+        function getStatus() {
+            if (window.TeachInspireProduction) {
+                const status = window.TeachInspireProduction.getStatus();
+                console.log('Animation Status:', status);
+                alert(JSON.stringify(status, null, 2));
+            }
+        }
+        
+        function getAnimationReport() {
+            if (window.TeachInspireProduction) {
+                const system = window.TeachInspireProduction.getAnimationSystem();
+                if (system && system.getAnimationSystem) {
+                    const report = system.getAnimationSystem();
+                    console.log('Animation Report:', report);
+                    alert(JSON.stringify(report, null, 2));
+                }
+            }
+        }
+        
+        function updateDebugInfo() {
+            const debugInfo = document.getElementById('debug-info');
+            
+            if (window.TeachInspireProduction) {
+                const status = window.TeachInspireProduction.getStatus();
+                debugInfo.innerHTML = `
+                    <div>Status: ${status.initialized ? 'Loaded' : 'Loading...'}</div>
+                    <div>Errors: ${status.errors.length}</div>
+                    <div>Load time: ${status.initTime}ms</div>
+                    <div>System: ${status.animationSystem}</div>
+                `;
+            } else {
+                debugInfo.innerHTML = '<div style="color: red;">Not loaded</div>';
+            }
+        }
+        
+        // Update debug info every 2 seconds
+        setInterval(updateDebugInfo, 2000);
+        
+        // Initial update
+        setTimeout(updateDebugInfo, 500);
+        
+        // Log scroll events for debugging
+        let scrollTimer;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                console.log('Scroll position:', window.pageYOffset);
+            }, 100);
+        });
+    </script>
+</body>
+</html>

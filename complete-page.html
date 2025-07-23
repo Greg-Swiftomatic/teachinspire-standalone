@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachInspire - Transformez votre institut avec l'IA pédagogique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/assets/css/common.css">
+    <script src="/src/assets/js/simple-animations.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2c3d57;
+            line-height: 1.6;
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f7f2;
+            padding: 0 48px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .nav-contact {
+            color: #2c3d57;
+            text-decoration: none;
+            font: 400 16px/1.5 'Inter', sans-serif;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 48px 64px 48px;
+            background-color: #f8f7f2;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 48px 64px;
+            align-items: center;
+        }
+        
+        .text-column {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: left;
+        }
+        
+        .hero-title {
+            font: 700 64px/1.1 'Playfair Display', serif;
+            color: #2c3d57;
+            margin: 0 0 24px 0;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 800ms ease-out 400ms both;
+        }
+        
+        .subtitle-container {
+            margin: 0 0 8px 0;
+        }
+        
+        .subtitle-prefix,
+        .animated-word,
+        .subtitle-suffix {
+            font: 700 42px/1.2 'Playfair Display', serif;
+            margin: 0 0 4px 0;
+            display: block;
+        }
+        
+        .subtitle-prefix {
+            color: #2c3d57;
+        }
+        
+        .animated-word {
+            color: #e74c3c;
+            text-decoration: line-through;
+            animation: pulse 500ms ease-in-out infinite alternate;
+        }
+        
+        .subtitle-suffix {
+            color: #f1d263;
+        }
+        
+        .image-column {
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: center;
+            align-self: center;
+            animation: fadeInUp 800ms ease-out 600ms both;
+        }
+        
+        .hourglass-image {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .description-container {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            text-align: left;
+            max-width: 700px;
+            animation: fadeInUp 800ms ease-out 800ms both;
+        }
+        
+        .hero-description {
+            font: 400 20px/1.6 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 32px 0;
+            letter-spacing: -0.005em;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f1d263;
+            color: #2c3d57;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font: 600 16px/1.4 'Inter', sans-serif;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .hero-cta:hover {
+            background-color: #e9c545;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .hero-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* ===== COMMON SECTION STYLES ===== */
+        .section {
+            padding: 64px 48px;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section-title {
+            font: 700 42px/1.2 'Playfair Display', serif;
+            color: #2c3d57;
+            margin-bottom: 24px;
+        }
+        
+        .section-description {
+            font: 400 18px/1.6 'Inter', sans-serif;
+            color: #2c3d57;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ===== PROBLEMS SECTION ===== */
+        .problems-section {
+            background-color: #ffffff;
+        }
+        
+        /* ===== APPROACH SECTION ===== */
+        .approach-section {
+            background-color: #f8f7f2;
+        }
+        
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto 48px auto;
+        }
+        
+        .approach-item {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .approach-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #f1d263;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2c3d57;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .approach-text {
+            font: 500 18px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0;
+        }
+        
+        .philosophy-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .philosophy-title {
+            font: 600 20px/1.4 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 16px 0;
+        }
+        
+        .philosophy-text {
+            font: 400 18px/1.6 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0;
+        }
+        
+        /* ===== TRAINING SECTION ===== */
+        .training-section {
+            background-color: #ffffff;
+        }
+        
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .training-card {
+            background-color: #f8f7f2;
+            padding: 32px 24px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .training-icon {
+            margin-bottom: 24px;
+        }
+        
+        .training-icon-placeholder {
+            width: 60px;
+            height: 60px;
+            background-color: #85a2a3;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        /* ===== FORMAT SECTION ===== */
+        .format-section {
+            background-color: #f8f7f2;
+        }
+        
+        .format-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-top: 48px;
+        }
+        
+        .format-image {
+            text-align: center;
+        }
+        
+        .format-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+        
+        .format-details {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .format-block {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .format-block-title {
+            font: 600 20px/1.3 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 16px 0;
+        }
+        
+        .format-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .format-list li {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .format-list li:before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #85a2a3;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .format-description {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0;
+        }
+        
+        /* ===== COMMUNITY SECTION ===== */
+        .community-section {
+            background-color: #ffffff;
+        }
+        
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .community-block {
+            background-color: #f8f7f2;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .community-title {
+            font: 600 22px/1.3 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 20px 0;
+        }
+        
+        .community-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .community-list li {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .community-list li:before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #85a2a3;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* ===== INVESTMENT SECTION ===== */
+        .investment-section {
+            background-color: #f8f7f2;
+        }
+        
+        .investment-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .investment-block {
+            background-color: #ffffff;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .investment-title {
+            font: 600 22px/1.3 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 16px 0;
+        }
+        
+        .investment-description {
+            font: 400 18px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0;
+        }
+        
+        .investment-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .investment-list li {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .investment-list li:before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #85a2a3;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .investment-cta {
+            background-color: #ffffff;
+            padding: 40px 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .investment-cta-text {
+            font: 600 20px/1.4 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 24px 0;
+        }
+        
+        .investment-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f1d263;
+            color: #2c3d57;
+            padding: 18px 36px;
+            border-radius: 8px;
+            font: 600 18px/1.4 'Inter', sans-serif;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .investment-button:hover {
+            background-color: #e9c545;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .investment-button svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* ===== GUARANTEES SECTION ===== */
+        .guarantees-section {
+            background-color: #ffffff;
+        }
+        
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-block {
+            background-color: #f8f7f2;
+            padding: 32px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid #f1d263;
+        }
+        
+        .guarantee-title {
+            font: 600 22px/1.3 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 20px 0;
+        }
+        
+        .guarantee-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .guarantee-list li {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .guarantee-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f1d263;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .training-title {
+            font: 600 20px/1.3 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0 0 20px 0;
+        }
+        
+        .training-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .training-list li {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #2c3d57;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .training-list li:before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #85a2a3;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .problems-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-top: 48px;
+        }
+        
+        .problems-image {
+            text-align: center;
+        }
+        
+        .challenges-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        
+        .problems-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            text-align: left;
+        }
+        
+        .problem-icon {
+            width: 8px;
+            height: 8px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 12px;
+        }
+        
+        .problem-title {
+            font: 600 22px/1.4 'Inter', sans-serif;
+            color: #2c3d57;
+            margin: 0;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background-color: #f8f7f2;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f1d263;
+            color: #2c3d57;
+            padding: 20px 40px;
+            border-radius: 8px;
+            font: 600 18px/1.4 'Inter', sans-serif;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: #e9c545;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background: linear-gradient(135deg, #2c3d57 0%, #3f4e68 100%);
+            color: #ffffff;
+        }
+        
+        .about-section .section-title {
+            color: #f1d263;
+        }
+        
+        .about-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .about-logo-image {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 64px;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .profile-column {
+            text-align: center;
+        }
+        
+        .profile-photo {
+            margin-bottom: 24px;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f1d263;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .profile-name {
+            font: 600 24px/1.3 'Inter', sans-serif;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+        }
+        
+        .profile-subtitle {
+            font: 400 16px/1.4 'Inter', sans-serif;
+            color: #85a2a3;
+            margin: 0;
+        }
+        
+        .text-column {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .text-block {
+            border-left: 4px solid #f1d263;
+            padding-left: 24px;
+        }
+        
+        .text-block-title {
+            font: 600 22px/1.3 'Playfair Display', serif;
+            color: #f1d263;
+            margin: 0 0 16px 0;
+        }
+        
+        .text-block-content {
+            font: 400 16px/1.6 'Inter', sans-serif;
+            color: #ffffff;
+            margin: 0;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: #2c3d57;
+            padding: 32px 48px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+        
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        
+        .footer-logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(89%) sepia(23%) saturate(692%) hue-rotate(36deg) brightness(105%) contrast(86%);
+        }
+        
+        .footer-contact {
+            font: 400 16px/1.5 'Inter', sans-serif;
+            color: #85a2a3;
+        }
+        
+        .footer-contact a {
+            color: #f1d263;
+            text-decoration: none;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 24px;
+            }
+            
+            .hero-section,
+            .section {
+                padding: 100px 24px 48px 24px;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 32px;
+                text-align: center;
+            }
+            
+            .text-column {
+                grid-column: 1;
+                grid-row: 2;
+                text-align: center;
+            }
+            
+            .image-column {
+                grid-column: 1;
+                grid-row: 1;
+                margin-bottom: 24px;
+            }
+            
+            .hourglass-image {
+                max-width: 300px;
+            }
+            
+            .description-container {
+                grid-column: 1;
+                grid-row: 3;
+                text-align: center;
+                max-width: none;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .subtitle-prefix,
+            .animated-word,
+            .subtitle-suffix {
+                font-size: 32px;
+            }
+            
+            .hero-description {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .problems-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .problems-image {
+                order: 1;
+            }
+            
+            .problems-list {
+                order: 2;
+            }
+            
+            .approach-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .training-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .format-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .format-details {
+                gap: 24px;
+            }
+            
+            .community-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .profile-column {
+                order: 1;
+            }
+            
+            .text-column {
+                order: 2;
+                gap: 24px;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .subtitle-prefix,
+            .animated-word,
+            .subtitle-suffix {
+                font-size: 24px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .hourglass-image {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/134736d6-5e59-461d-8594-dbd8c8d6c400/public" 
+                 alt="TeachInspire" 
+                 class="logo-image">
+        </a>
+        <a href="mailto:greg@teachinspire.me" class="nav-contact">greg@teachinspire.me</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="ac0b1e8c-2363-41b1-9daa-49d580bb8c6f">
+        <div class="hero-container">
+            <!-- Text Column -->
+            <div class="text-column">
+                <h1 class="hero-title">Transformez votre institut avec l'IA pédagogique</h1>
+                
+                <div class="subtitle-container">
+                    <h2 class="subtitle-prefix">Créer des cours sur mesure est</h2>
+                    <h2 class="animated-word" id="animated-word">fastidieux</h2>
+                    <h2 class="subtitle-suffix">fluide et rapide</h2>
+                </div>
+            </div>
+            
+            <!-- Image Column -->
+            <div class="image-column">
+                <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/513fa36c-80bd-4015-140b-4b42ca020b00/public" 
+                     alt="Hourglass with lightbulb - Time and inspiration" 
+                     class="hourglass-image">
+            </div>
+            
+            <!-- Description (spans full width) -->
+            <div class="description-container">
+                <p class="hero-description">
+                    Formez vos équipes pour créer des contenus personnalisés plus rapidement, 
+                    sans sacrifier la qualité pédagogique.
+                </p>
+                
+                <a href="https://cal.com/greg-teachinspire/demo" 
+                   target="_blank" 
+                   class="hero-cta">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Réserver une démo gratuite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="section problems-section" id="1b0b31e0-8a1d-4c98-9562-2a7bffd7b340">
+        <div class="section-container">
+            <h2 class="section-title">Votre Institut Face aux Défis Actuels</h2>
+            
+            <div class="problems-content">
+                <div class="problems-image">
+                    <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/bd86211e-6125-480f-6db1-20bfb880eb00/public" 
+                         alt="Illustration of educational challenges" 
+                         class="challenges-image">
+                </div>
+                
+                <div class="problems-list">
+                    <div class="problem-item">
+                        <div class="problem-icon"></div>
+                        <h3 class="problem-title">Préparation de cours personnalisés très chronophage</h3>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon"></div>
+                        <h3 class="problem-title">Difficulté à adapter les contenus aux différents niveaux</h3>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon"></div>
+                        <h3 class="problem-title">Ressources multimédia coûteuses à produire</h3>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon"></div>
+                        <h3 class="problem-title">Manque de cohérence pédagogique entre formateurs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="section approach-section" id="7e236026-ae26-43c1-b165-0a64b12a6d75">
+        <div class="section-container">
+            <h2 class="section-title">Notre Approche: Formation + Communauté + Accompagnement</h2>
+            
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <div class="approach-icon">✓</div>
+                    <p class="approach-text">Formation progressive en 3 modules</p>
+                </div>
+                
+                <div class="approach-item">
+                    <div class="approach-icon">✓</div>
+                    <p class="approach-text">Communauté active d'instituts partenaires</p>
+                </div>
+                
+                <div class="approach-item">
+                    <div class="approach-icon">✓</div>
+                    <p class="approach-text">Accompagnement humain personnalisé</p>
+                </div>
+                
+                <div class="approach-item">
+                    <div class="approach-icon">✓</div>
+                    <p class="approach-text">Outils gratuits sélectionnés pour la pédagogie</p>
+                </div>
+            </div>
+            
+            <div class="philosophy-container">
+                <h3 class="philosophy-title">Notre philosophie:</h3>
+                <p class="philosophy-text">L'IA s'occupe des tâches répétitives, vos formateurs se concentrent sur l'enseignement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Program Section -->
+    <section class="section training-section" id="eeca3349-b596-4f42-8363-38d479ae30ba">
+        <div class="section-container">
+            <h2 class="section-title">Programme de Formation Détaillé</h2>
+            
+            <div class="training-grid">
+                <!-- Module 1 -->
+                <div class="training-card">
+                    <div class="training-icon">
+                        <div class="training-icon-placeholder"></div>
+                    </div>
+                    <h3 class="training-title">Module 1 — Fondations IA & Outils Essentiels</h3>
+                    <ul class="training-list">
+                        <li>Google AI Studio & Modèles de Langage</li>
+                        <li>Outils de transcription</li>
+                        <li>Synthèse vocale</li>
+                        <li>Configuration de l'environnement de travail</li>
+                    </ul>
+                </div>
+                
+                <!-- Module 2 -->
+                <div class="training-card">
+                    <div class="training-icon">
+                        <div class="training-icon-placeholder"></div>
+                    </div>
+                    <h3 class="training-title">Module 2 — Prompt Engineering & Communication IA</h3>
+                    <ul class="training-list">
+                        <li>Fondamentaux du prompting</li>
+                        <li>Prompts structurés et réutilisables</li>
+                        <li>Banque de prompts personnalisée</li>
+                        <li>Auto-évaluation avancée basée sur l'IA</li>
+                    </ul>
+                </div>
+                
+                <!-- Module 3 -->
+                <div class="training-card">
+                    <div class="training-icon">
+                        <div class="training-icon-placeholder"></div>
+                    </div>
+                    <h3 class="training-title">Module 3 — Workflows Pédagogiques Complets</h3>
+                    <ul class="training-list">
+                        <li>Transformer du contenu authentique</li>
+                        <li>Création d'activités et d'évaluations</li>
+                        <li>Workflows complets de l'idée au cours</li>
+                        <li>Intégration dans les systèmes existants</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Training Format Section -->
+    <section class="section format-section" id="2225af1a-6129-4282-9fbe-35e98a57ccee">
+        <div class="section-container">
+            <h2 class="section-title">Format de Formation Hybride</h2>
+            
+            <div class="format-content">
+                <div class="format-image">
+                    <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/74b4df78-2d35-4eb9-6257-87d737569800/public" 
+                         alt="Formation hybride illustration" 
+                         class="format-img">
+                </div>
+                
+                <div class="format-details">
+                    <div class="format-block">
+                        <h3 class="format-block-title">Contenu Accessible à Vie</h3>
+                        <ul class="format-list">
+                            <li>15 tutoriels vidéo (6h total) en format court</li>
+                            <li>Guides pratiques et templates prêts à utiliser</li>
+                            <li>Outils développés en interne</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="format-block">
+                        <h3 class="format-block-title">Sessions Live Dédiées</h3>
+                        <ul class="format-list">
+                            <li>6 à 8 webinaires adaptés à votre équipe</li>
+                            <li>Sessions hands-on avec vos contenus réels</li>
+                            <li>Coaching sur les premiers cours créés</li>
+                            <li>Support prioritaire pendant la formation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="format-block">
+                        <h3 class="format-block-title">Parcours sur 3 Mois</h3>
+                        <p class="format-description">
+                            Accompagnement progressif permettant l'assimilation et la mise en pratique entre chaque étape.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section community-section" id="c7ba5dc1-c233-4dd9-bcdb-39a1d7642e7e">
+        <div class="section-container">
+            <h2 class="section-title">La Communauté TeachInspire</h2>
+            
+            <div class="community-grid">
+                <div class="community-block">
+                    <h3 class="community-title">Espace Collaboratif</h3>
+                    <ul class="community-list">
+                        <li>Partage d'expériences entre instituts utilisateurs</li>
+                        <li>Banque de prompts alimentée collectivement</li>
+                        <li>Webinaires réguliers sur les nouveautés pédagogiques</li>
+                        <li>Veille technologique collaborative</li>
+                    </ul>
+                </div>
+                
+                <div class="community-block">
+                    <h3 class="community-title">Support Continu</h3>
+                    <ul class="community-list">
+                        <li>Aide personnalisée en français par des experts pédagogiques</li>
+                        <li>Mises à jour régulières des méthodes et outils</li>
+                        <li>Espace privé pour votre institut</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section class="section investment-section" id="71aef82d-8d34-45b3-bdf7-1310e073766c">
+        <div class="section-container">
+            <h2 class="section-title">Investissement et Modalités</h2>
+            
+            <div class="investment-content">
+                <div class="investment-block">
+                    <h3 class="investment-title">Formation Adaptée à Votre Structure</h3>
+                    <p class="investment-description">
+                        Nos tarifs évoluent selon le nombre de formateurs à former dans votre institut.
+                    </p>
+                </div>
+                
+                <div class="investment-block">
+                    <h3 class="investment-title">Financement OPCO - Prise en Charge Possible</h3>
+                    <ul class="investment-list">
+                        <li>Formation éligible aux dispositifs de financement professionnel</li>
+                        <li>Accompagnement dans les démarches</li>
+                    </ul>
+                </div>
+                
+                <div class="investment-cta">
+                    <p class="investment-cta-text">Contactez-nous pour un devis personnalisé</p>
+                    <a href="https://cal.com/greg-teachinspire/demo" 
+                       target="_blank" 
+                       class="investment-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantees Section -->
+    <section class="section guarantees-section" id="1fb36b5f-587e-46f8-8fd2-f32ec4a7913c">
+        <div class="section-container">
+            <h2 class="section-title">Garanties et Engagements</h2>
+            
+            <div class="guarantees-grid">
+                <div class="guarantee-block">
+                    <h3 class="guarantee-title">Notre Engagement Qualité</h3>
+                    <ul class="guarantee-list">
+                        <li>Formation en français par des pédagogues expérimentés</li>
+                        <li>Conformité RGPD et respect des données éducatives</li>
+                        <li>Support réactif aux heures de votre activité</li>
+                        <li>Mises à jour gratuites des méthodes et outils</li>
+                    </ul>
+                </div>
+                
+                <div class="guarantee-block">
+                    <h3 class="guarantee-title">Votre Tranquillité</h3>
+                    <ul class="guarantee-list">
+                        <li>Session découverte gratuite pour évaluer l'adéquation</li>
+                        <li>Accompagnement jusqu'à la maîtrise effective</li>
+                        <li>Documentation complète en français</li>
+                        <li>Retours d'expérience d'autres instituts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="33abbee2-21ea-439c-afe7-322d23c08713">
+        <div class="section-container">
+            <h2 class="section-title">Prêt à transformer votre approche pédagogique ?</h2>
+            <p class="section-description">
+                Découvrez comment l'IA peut révolutionner votre institut éducatif.
+            </p>
+            
+            <a href="https://cal.com/greg-teachinspire/demo" target="_blank" class="cta-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Planifier une démonstration
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="a823c108-9097-4a2a-a8cd-8505c1ef1cc9">
+        <div class="section-container">
+            <!-- Large Logo -->
+            <div class="about-logo">
+                <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/134736d6-5e59-461d-8594-dbd8c8d6c400/public" 
+                     alt="TeachInspire" 
+                     class="about-logo-image">
+            </div>
+            
+            <h2 class="section-title">À Propos de TeachInspire</h2>
+            
+            <div class="about-content">
+                <!-- Left Column: Founder Profile -->
+                <div class="profile-column">
+                    <div class="profile-photo">
+                        <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/01dcb8db-47d1-4210-d7cd-462f76b58e00/public" 
+                             alt="Grégory Le Dall" 
+                             class="profile-image">
+                    </div>
+                    <h3 class="profile-name">Grégory Le Dall</h3>
+                    <p class="profile-subtitle">Formateur certifié CELTA, Spécialiste IA pédagogique</p>
+                </div>
+                
+                <!-- Right Column: Text Blocks -->
+                <div class="text-column">
+                    <div class="text-block">
+                        <h3 class="text-block-title">Notre Mission</h3>
+                        <p class="text-block-content">
+                            Accompagner les instituts de langues dans l'intégration réfléchie et efficace de l'IA, 
+                            en respectant l'expertise pédagogique des formateurs.
+                        </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3 class="text-block-title">Notre Approche</h3>
+                        <p class="text-block-content">
+                            "L'IA comme assistant, pas comme remplaçant"
+                        </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3 class="text-block-title">Notre Fondateur</h3>
+                        <p class="text-block-content">
+                            Grégory, formateur certifié CELTA avec 8 ans d'expérience terrain. 
+                            Spécialisé depuis 4 ans dans l'intégration pédagogique de l'IA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://imagedelivery.net/BGb25Nzj8sQ1HtrebC39dQ/134736d6-5e59-461d-8594-dbd8c8d6c400/public" 
+                     alt="TeachInspire" 
+                     class="footer-logo-image">
+            </div>
+            <div class="footer-contact">
+                Contact : <a href="mailto:greg@teachinspire.me">greg@teachinspire.me</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Word animation
+        const words = ['fastidieux', 'chronophage', 'répétitif', 'complexe'];
+        let currentIndex = 0;
+        const animatedWordEl = document.getElementById('animated-word');
+        
+        function cycleWords() {
+            currentIndex = (currentIndex + 1) % words.length;
+            animatedWordEl.textContent = words[currentIndex];
+        }
+        
+        // Start cycling every 3 seconds
+        setInterval(cycleWords, 3000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

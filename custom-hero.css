@@ -1,0 +1,143 @@
+/* ===================================================
+   TEACHINSPIRE CUSTOM HERO - FREE FROM WEWEB CONSTRAINTS
+   =================================================== */
+
+/* Hero two-column layout - force override all WeWeb styles */
+.hero-section,
+[data-section-id*="ac0b1e8c"],
+section:first-of-type {
+    background-color: #f8f7f2 !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 80px 48px 64px 48px !important;
+}
+
+/* Hero content container - force grid layout */
+.hero-container,
+[data-ww-object-uid*="6622e1cb"],
+.hero-section > div:first-child,
+.hero-section .ww-object:first-child {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 64px !important;
+    align-items: center !important;
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Text column - all text elements go left */
+.hero-text-column,
+.hero-container > *:not(.hero-image):not(img):not([src*="hourglass"]):not([src*="513fa36c"]) {
+    grid-column: 1 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+}
+
+/* Image column - hourglass goes right */
+.hero-image-column,
+.hero-container img,
+.hero-container [src*="hourglass"],
+.hero-container [src*="513fa36c"],
+.hero-container [alt*="Hourglass"] {
+    grid-column: 2 !important;
+    grid-row: 1 / -1 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    max-width: 450px !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* Text alignment overrides */
+.hero-container h1,
+.hero-container h2,
+.hero-container p,
+.hero-container .ww-text,
+.hero-container [role="heading"] {
+    text-align: left !important;
+}
+
+/* Subtitle container alignment */
+.hero-container [data-name*="Subtitle"] {
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* Animated word styling - preserve functionality */
+#hero_animated_word {
+    color: #e74c3c !important;
+    text-decoration: line-through !important;
+    margin-bottom: 4px !important;
+}
+
+/* Tighter spacing for hero elements */
+.hero-container > * {
+    margin-bottom: 8px !important;
+}
+
+/* CTA button positioning */
+.hero-container button,
+.hero-container [role="button"] {
+    align-self: flex-start !important;
+    text-align: center !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 24px 48px 24px !important;
+    }
+    
+    .hero-container,
+    [data-ww-object-uid*="6622e1cb"],
+    .hero-section > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+        text-align: center !important;
+    }
+    
+    .hero-container > * {
+        grid-column: 1 !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .hero-container img {
+        order: -1 !important;
+        max-width: 300px !important;
+        margin-bottom: 24px !important;
+        grid-row: auto !important;
+    }
+    
+    .hero-container h1,
+    .hero-container h2,
+    .hero-container p,
+    .hero-container .ww-text {
+        text-align: center !important;
+    }
+    
+    .hero-container [data-name*="Subtitle"] {
+        align-items: center !important;
+    }
+}
+
+/* Backup selectors - target by structure */
+body > div:first-child section:first-of-type > div:first-child {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 64px !important;
+    align-items: center !important;
+    max-width: 1200px !important;
+}
+
+/* Ultra aggressive - target the actual elements by position */
+section:first-of-type > div > div:first-child {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 64px !important;
+    align-items: center !important;
+}
